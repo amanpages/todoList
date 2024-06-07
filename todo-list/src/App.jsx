@@ -9,9 +9,9 @@ const App = () => {
   });
   const [newTodo, setNewTodo] = useState('');
 
-  const generateId = () => '_' + Math.random().toString(36).substr(2, 9);
+  const generateId = () => '_' + Math.random().toString(36).substr(2, 9); // generating a random id
 
-  const handleAddTodo = () => {
+  const handleAddTodo = () => {  // handling the todo list input
     if (newTodo.trim() !== '') {
       setTodos([...todos, { id: generateId(), label: newTodo }]);
       setNewTodo('');
@@ -22,7 +22,7 @@ const App = () => {
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      handleAddTodo();
+      handleAddTodo(); // handling the enter click
     }
   };
 
@@ -34,7 +34,7 @@ const App = () => {
 
   const handleEditTodo = (id, newLabel) => {
     const updatedTodos = todos.map((todo) => (todo.id === id ? { ...todo, label: newLabel } : todo));
-    setTodos(updatedTodos);
+    setTodos(updatedTodos); // Updating the todo list
   };
 
   useEffect(() => {
