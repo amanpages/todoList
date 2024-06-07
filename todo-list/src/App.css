@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #b6d5db, #a3c9ca);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  width: 500px;
+  max-width: 90%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.checkbox label {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+  color: #a39898;
+  text-decoration: line-through;
+}
+
+.add-todo {
+  margin-left: 25px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.835);
+  color: #333;
+  width: 70%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-todo:hover {
+  background-color: rgba(255, 255, 255, 0.815);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bigbtn {
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.bigbtn:hover {
+  background-color: #45a049;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.delete-btn {
+  background-color: #ff6347;
+  margin: 2px;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #ff483b;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+  margin-left: auto;
+}
+
+.edit-btn:hover {
+  background-color: #0069d9;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+.cancel-btn {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* New style for the edit input box */
+.edit-input {
+  padding: 10px;
+
+  border: solid 2px rgba(131, 177, 182, 0.835);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.835);
+  color: #333;
+  width: calc(100% - 22px);
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-input:focus {
+  background-color: rgba(255, 255, 255, 0.815);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    backdrop-filter: none;
+  }
+
+  .add-todo,
+  .bigbtn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .delete-btn, .edit-btn, .save-btn, .cancel-btn {
+    width: 35%;
+  }
+}
